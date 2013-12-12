@@ -1,1 +1,15 @@
-This file was created by IntelliJ IDEA 12.1.6 for binding GitHub repository
+Modjam 3 - Repo for DCatcher!
+
+How to build:
+==================
+-> Setup Forge properly..
+-> Using ForgeGradle, put the src/main folder, where your src/main folder is, then use "gradlew.bat build" on the command line
+
+OR:
+
+Gradle Installed?
+"gradle build"
+Different O/S?
+"gradlew build"
+Windows and no Gradle installed?
+"gradlew.bat build"
