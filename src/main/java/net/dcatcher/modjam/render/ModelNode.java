@@ -37,7 +37,7 @@ public class ModelNode extends ModelBase
       setRotation(Pillar, 0F, 0F, 0F);
       Cube = new ModelRenderer(this, 0, 43);
       Cube.addBox(0F, 0F, 0F, 4, 4, 4);
-      Cube.setRotationPoint(-3F, 9F, -1F);
+      Cube.setRotationPoint(-2F, 9F, -1F);
       Cube.setTextureSize(64, 64);
       Cube.mirror = true;
       setRotation(Cube, 0.7853982F, 0.7853982F, 0.7853982F);

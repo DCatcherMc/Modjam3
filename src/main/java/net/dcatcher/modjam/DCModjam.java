@@ -9,6 +9,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.dcatcher.modjam.blocks.DCBlocks;
 import net.dcatcher.modjam.tiles.TENode;
+import net.dcatcher.modjam.util.ClientProxy;
 import net.dcatcher.modjam.util.CommonProxy;
 import net.dcatcher.modjam.util.DCCreativeTab;
 import net.minecraft.creativetab.CreativeTabs;
@@ -37,8 +38,7 @@ public class DCModjam {
     @Mod.EventHandler
     public void Init(FMLInitializationEvent e){
         GameRegistry.registerTileEntity(TENode.class, "tileEntityNode");
-        proxy.initialise();
-
+        ClientProxy.registerRendering();
         //Initialise Blocks:
         blocks.initialiseBlocks();
     }

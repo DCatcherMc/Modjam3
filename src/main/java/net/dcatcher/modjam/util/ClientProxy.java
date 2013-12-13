@@ -8,9 +8,7 @@ import net.dcatcher.modjam.tiles.TENode;
 
 public class ClientProxy extends CommonProxy {
 
-    @Override
-    public void initialise(){
-        super.initialise();
+    public static void registerRendering(){
         //RenderingRegistry.registerBlockHandler(new BlockHandler());
         ClientRegistry.bindTileEntitySpecialRenderer(TENode.class, new RenderNode());
     }
