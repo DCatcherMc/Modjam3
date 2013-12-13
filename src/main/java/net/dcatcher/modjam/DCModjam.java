@@ -5,6 +5,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.dcatcher.modjam.blocks.DCBlocks;
 import net.dcatcher.modjam.tiles.TENode;
@@ -13,6 +14,7 @@ import net.dcatcher.modjam.util.DCCreativeTab;
 import net.minecraft.creativetab.CreativeTabs;
 
 @Mod(modid = "dcmodjam", name = "DCModJam - 3", version = "0.0.1")
+@NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class DCModjam {
 
     @Mod.Instance("dcmodjam")
