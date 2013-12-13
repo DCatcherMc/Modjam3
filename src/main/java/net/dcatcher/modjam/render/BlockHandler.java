@@ -15,7 +15,7 @@ public class BlockHandler implements ISimpleBlockRenderingHandler {
         GL11.glTranslated(0.5, 1.9, 0.5);
         GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
         GL11.glScalef(1.3f, 1.3f, 1.3f);
-        RenderNode.ModelNode.render(0.0625F);
+        //RenderNode.ModelNode.render(0.0625F);
     }
 
     @Override

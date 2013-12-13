@@ -28,31 +28,9 @@ public class RenderNode extends TileEntitySpecialRenderer{
         GL11.glRotatef((0 * 90.0F), 0.0F, 1.0F, 0.0F);
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         bindTexture(texture);
-        ModelNode.render(0.0625F);
+        ModelNode.render(te, 0.0625F);
         GL11.glPopMatrix();
     }
 
-    /**
-    public void render(TENode teNode, World world, int x, int y, int z, Block block){
-        Tessellator tesselator = Tessellator.instance;
 
-        float f = block.getBlockBrightness(world, x, y, z);
-
-        int l = world.getLightBrightnessForSkyBlocks(x, y, z, 0);
-        tesselator.setColorOpaque_F(f, f, f);
-
-        OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, (float)l % 65536, (float)l / 65536);
-
-        int dir = world.getBlockMetadata(x, y, z);
-
-        GL11.glPushMatrix();
-        GL11.glTranslatef(0.5F, 0, 0.5F);
-        GL11.glRotatef(dir * (-90F), 0F, 1F, 0F);
-        GL11.glTranslatef(-0.5F, 0, -0.5F);
-
-
-
-        GL11.glPopMatrix();
-    }
-       */
 }

@@ -1,8 +1,10 @@
 package net.dcatcher.modjam.render;
 
+import net.dcatcher.modjam.tiles.TENode;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.tileentity.TileEntity;
 
 public class ModelNode extends ModelBase
 {
@@ -37,18 +39,24 @@ public class ModelNode extends ModelBase
       setRotation(Pillar, 0F, 0F, 0F);
       Cube = new ModelRenderer(this, 0, 43);
       Cube.addBox(0F, 0F, 0F, 4, 4, 4);
-      Cube.setRotationPoint(-2F, 9F, -1F);
+      Cube.setRotationPoint(0f, 9F, 0f);
       Cube.setTextureSize(64, 64);
       Cube.mirror = true;
       setRotation(Cube, 0.7853982F, 0.7853982F, 0.7853982F);
   }
   
-  public void render(float f5)
+  public void render(TileEntity entity, float f5)
   {
-    Base.render(f5);
-    Podium.render(f5);
-    Pillar.render(f5);
-    Cube.render(f5);
+      TENode node = (TENode)entity;
+      Cube.rotateAngleY = node.getCubeRotation();
+      Cube.rotateAngleX = node.getCubeRotation();
+      Cube.rotateAngleZ = node.getCubeRotation();
+
+
+      Base.render(f5);
+      Podium.render(f5);
+      Pillar.render(f5);
+      Cube.render(f5);
   }
   
   private void setRotation(ModelRenderer model, float x, float y, float z)
