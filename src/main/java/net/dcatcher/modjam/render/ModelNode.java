@@ -43,10 +43,8 @@ public class ModelNode extends ModelBase
       setRotation(Cube, 0.7853982F, 0.7853982F, 0.7853982F);
   }
   
-  public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
+  public void render(float f5)
   {
-    super.render(entity, f, f1, f2, f3, f4, f5);
-    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     Base.render(f5);
     Podium.render(f5);
     Pillar.render(f5);

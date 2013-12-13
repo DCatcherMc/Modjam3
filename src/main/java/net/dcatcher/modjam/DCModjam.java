@@ -4,7 +4,9 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.dcatcher.modjam.blocks.DCBlocks;
+import net.dcatcher.modjam.tiles.TENode;
 import net.dcatcher.modjam.util.DCCreativeTab;
 import net.minecraft.creativetab.CreativeTabs;
 
@@ -30,6 +32,11 @@ public class DCModjam {
 
     @Mod.EventHandler
     public void Init(FMLInitializationEvent e){
+        GameRegistry.registerTileEntity(TENode.class, "tileEntityNode");
+
+
+
+        //Initialise Blocks:
         blocks.initialiseBlocks();
     }
 
