@@ -52,7 +52,6 @@ public class ModelNode extends ModelBase
       Cube.rotateAngleX = node.getCubeYRotation();
       Cube.rotateAngleZ = node.getCubeZRotation();
 
-
       Base.render(f5);
       Podium.render(f5);
       Pillar.render(f5);
