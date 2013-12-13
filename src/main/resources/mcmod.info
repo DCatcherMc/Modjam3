@@ -1,0 +1,16 @@
+[
+{
+  "modid": "dcmodjam",
+  "name": "DCModjam - 3",
+  "description": "DCatcher's Modjam3 Mod!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["DCatcher"],
+  "credits": "DCatcher!",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
