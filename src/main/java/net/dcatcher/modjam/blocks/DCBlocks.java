@@ -9,10 +9,9 @@ import net.minecraft.block.Block;
 public class DCBlocks {
 
 
-    private Block block = new BlockNode(DCConfig.idBlockNode);
+    public static Block blockNode;
 
     public void initialiseBlocks(){
-
-
+        blockNode = new BlockNode(DCConfig.idBlockNode);
     }
 }

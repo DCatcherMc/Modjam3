@@ -5,6 +5,8 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.dcatcher.modjam.blocks.DCBlocks;
+import net.dcatcher.modjam.util.DCCreativeTab;
+import net.minecraft.creativetab.CreativeTabs;
 
 /**
  * Copyright: DCatcher
@@ -17,6 +19,8 @@ public class DCModjam {
 
     private DCConfig config = new DCConfig();
     private DCBlocks blocks = new DCBlocks();
+
+    public static CreativeTabs tabDCatcher = new DCCreativeTab(CreativeTabs.getNextID(), "DCatcher - ModJam 3");
 
 
     @Mod.EventHandler

@@ -2,6 +2,9 @@ package net.dcatcher.modjam.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
+
+import javax.swing.*;
 
 /**
  * Copyright: DCatcher
@@ -9,5 +12,13 @@ import net.minecraft.block.material.Material;
 public class BlockNode extends Block {
     public BlockNode(int id) {
         super(id, Material.rock);
+        setUnlocalizedName("blockNode");
+
+    }
+
+
+    @Override
+    public void registerIcons(IconRegister par1IconRegister) {
+        par1IconRegister.registerIcon("dcatchermodjam:block_node");
     }
 }
