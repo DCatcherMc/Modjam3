@@ -19,5 +19,6 @@ public class DCBlocks {
 
         GameRegistry.registerBlock(blockNode, "blockNode");
         LanguageRegistry.addName(blockNode, "Node");
+
     }
 }
