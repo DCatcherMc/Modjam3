@@ -48,9 +48,9 @@ public class ModelNode extends ModelBase
   public void render(TileEntity entity, float f5)
   {
       TENode node = (TENode)entity;
-      Cube.rotateAngleY = node.getCubeRotation();
-      Cube.rotateAngleX = node.getCubeRotation();
-      Cube.rotateAngleZ = node.getCubeRotation();
+      Cube.rotateAngleY = node.getCubeXRotation();
+      Cube.rotateAngleX = node.getCubeYRotation();
+      Cube.rotateAngleZ = node.getCubeZRotation();
 
 
       Base.render(f5);
