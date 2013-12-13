@@ -6,9 +6,6 @@ import net.dcatcher.modjam.render.BlockHandler;
 import net.dcatcher.modjam.render.RenderNode;
 import net.dcatcher.modjam.tiles.TENode;
 
-/**
- * Copyright: DCatcher
- */
 public class ClientProxy extends CommonProxy {
 
     @Override

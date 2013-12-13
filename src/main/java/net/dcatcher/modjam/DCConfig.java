@@ -5,9 +5,6 @@ import net.minecraftforge.common.Configuration;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Copyright: DCatcher
- */
 public class DCConfig {
 
     public static int idBlockNode;

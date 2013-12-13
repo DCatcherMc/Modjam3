@@ -6,9 +6,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-/**
- * Copyright: DCatcher
- */
 public class RenderNode extends TileEntitySpecialRenderer{
 
     public static final ModelNode ModelNode = new ModelNode();
@@ -19,7 +16,7 @@ public class RenderNode extends TileEntitySpecialRenderer{
         TENode tileEntity = (TENode)te;
 
         GL11.glPushMatrix();
-        GL11.glTranslated(x + 0.5, y + 1.95, z + 0.5);
+        GL11.glTranslated(x, y, z);
         GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
         GL11.glScalef(1.3f, 1.3f, 1.3f);
 

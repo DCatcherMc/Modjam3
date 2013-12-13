@@ -5,9 +5,6 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.dcatcher.modjam.DCConfig;
 import net.minecraft.block.Block;
 
-/**
- * Copyright: DCatcher
- */
 public class DCBlocks {
 
 

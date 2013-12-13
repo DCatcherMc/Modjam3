@@ -8,9 +8,6 @@ import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.world.IBlockAccess;
 import org.lwjgl.opengl.GL11;
 
-/**
- * Copyright: DCatcher
- */
 public class BlockHandler implements ISimpleBlockRenderingHandler {
     @Override
     public void renderInventoryBlock(Block block, int i, int i2, RenderBlocks renderBlocks) {
