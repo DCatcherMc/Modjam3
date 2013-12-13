@@ -15,9 +15,9 @@ public class TENode extends TileEntity{
         super.updateEntity();
 
         Random random = new Random();
-        cubeXRotation += (float)(random.nextInt(3) +1) / 10;
-        cubeYRotation += (float)(random.nextInt(3) +1) / 10;
-        cubeZRotation += (float)(random.nextInt(3) +1) / 10;
+        cubeXRotation += (float)(random.nextInt(2) +1) / 15;
+        cubeYRotation += (float)(random.nextInt(2) +1) / 15;
+        cubeZRotation += (float)(random.nextInt(2) +1) / 15;
         ;
 
     }
