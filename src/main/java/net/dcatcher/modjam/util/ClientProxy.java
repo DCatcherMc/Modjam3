@@ -11,7 +11,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void initialise(){
         super.initialise();
-        RenderingRegistry.registerBlockHandler(new BlockHandler());
+        //RenderingRegistry.registerBlockHandler(new BlockHandler());
         ClientRegistry.bindTileEntitySpecialRenderer(TENode.class, new RenderNode());
     }
 
