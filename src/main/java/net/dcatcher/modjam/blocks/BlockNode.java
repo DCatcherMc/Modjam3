@@ -1,16 +1,13 @@
 package net.dcatcher.modjam.blocks;
 
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.dcatcher.modjam.DCModjam;
 import net.dcatcher.modjam.render.BlockHandler;
 import net.dcatcher.modjam.tiles.TENode;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatMessageComponent;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
