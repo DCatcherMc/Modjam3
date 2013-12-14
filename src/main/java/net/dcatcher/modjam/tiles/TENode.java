@@ -8,9 +8,11 @@ import java.util.List;
 import java.util.Random;
 
 public class TENode extends TileEntity{
-
-    public float cubeXRotation, cubeYRotation,cubeZRotation;
     public boolean isActive;
+    public TENode(){
+        isActive = true;
+    }
+    public float cubeXRotation, cubeYRotation,cubeZRotation;
 
     @Override
     @SideOnly(Side.CLIENT)
@@ -73,8 +75,9 @@ public class TENode extends TileEntity{
         this.cubeXRotation = nbt.getFloat("cubeXRotation");
         this.cubeYRotation = nbt.getFloat("cubeYRotation");
         this.cubeZRotation = nbt.getFloat("cubeZRotation");
-        System.out.println("ISACTIVE: " + isActive);
         this.setActive(nbt.getBoolean("isActive"));
+        System.out.println("ISACTIVE: " + isActive);
+
     }
 
     @Override
