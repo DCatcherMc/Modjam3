@@ -12,6 +12,7 @@ import net.dcatcher.modjam.tiles.TENode;
 import net.dcatcher.modjam.util.ClientProxy;
 import net.dcatcher.modjam.util.CommonProxy;
 import net.dcatcher.modjam.util.DCCreativeTab;
+import net.dcatcher.modjam.util.DCRecipes;
 import net.minecraft.creativetab.CreativeTabs;
 
 @Mod(modid = "dcmodjam", name = "DCModJam - 3", version = "0.0.1")
@@ -41,6 +42,7 @@ public class DCModjam {
         ClientProxy.registerRendering();
         //Initialise Blocks:
         blocks.initialiseBlocks();
+        DCRecipes.registerRecipes();
     }
 
     @Mod.EventHandler
