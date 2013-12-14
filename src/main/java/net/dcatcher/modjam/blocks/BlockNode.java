@@ -16,6 +16,7 @@ public class BlockNode extends BlockContainer {
         super(id, Material.rock);
         setUnlocalizedName("blockNode");
         setCreativeTab(DCModjam.tabDCatcher);
+        setTickRandomly(true);
     }
 
 

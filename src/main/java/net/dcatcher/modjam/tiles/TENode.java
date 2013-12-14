@@ -17,17 +17,19 @@ public class TENode extends TileEntity{
     public void updateEntity() {
         super.updateEntity();
         Random random = new Random();
+        if(worldObj.isRemote){
+            if(isActive){
+                cubeXRotation += (float)(random.nextInt(2) +1) / 15;
+                cubeYRotation += (float)(random.nextInt(2) +1) / 15;
+                cubeZRotation += (float)(random.nextInt(2) +1) / 15;
+            }
 
-        if(isActive){
-            cubeXRotation += (float)(random.nextInt(2) +1) / 15;
-            cubeYRotation += (float)(random.nextInt(2) +1) / 15;
-            cubeZRotation += (float)(random.nextInt(2) +1) / 15;
         }
     }
 
     public void setActive(boolean active){
         isActive = active;
-        System.out.println("Setting active!");
+        System.out.println("Setting active!" + active);
 
     }
 
@@ -72,6 +74,7 @@ public class TENode extends TileEntity{
         this.cubeXRotation = nbt.getFloat("cubeXRotation");
         this.cubeYRotation = nbt.getFloat("cubeYRotation");
         this.cubeZRotation = nbt.getFloat("cubeZRotation");
+        System.out.println(nbt.getBoolean("isActive"));
         setActive(nbt.getBoolean("isActive"));
 
     }
