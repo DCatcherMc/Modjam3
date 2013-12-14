@@ -2,6 +2,7 @@ package net.dcatcher.modjam.blocks;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.dcatcher.modjam.DCModjam;
+import net.dcatcher.modjam.render.BlockHandler;
 import net.dcatcher.modjam.tiles.TENode;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -41,7 +42,7 @@ public class BlockNode extends BlockContainer {
 
     @Override
     public int getRenderType() {
-        return RenderingRegistry.getNextAvailableRenderId();
+        return BlockHandler.ID;
     }
 
     @Override
