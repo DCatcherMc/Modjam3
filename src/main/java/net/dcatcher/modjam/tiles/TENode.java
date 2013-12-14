@@ -27,10 +27,13 @@ public class TENode extends TileEntity{
 
     public void setActive(boolean active){
         isActive = active;
+        System.out.println("Setting active!");
+
     }
 
     public void toggleActive(){
         isActive = !isActive;
+        System.out.println("Toggling active!");
     }
 
     public TENode findClosestNode(){
@@ -70,6 +73,7 @@ public class TENode extends TileEntity{
         this.cubeYRotation = nbt.getFloat("cubeYRotation");
         this.cubeZRotation = nbt.getFloat("cubeZRotation");
         setActive(nbt.getBoolean("isActive"));
+
     }
 
     @Override
