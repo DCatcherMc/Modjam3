@@ -37,7 +37,7 @@ public class DCModjam {
 
     @Mod.EventHandler
     public void Init(FMLInitializationEvent e){
-        GameRegistry.registerTileEntity(TENode.class, "tileEntityNode");
+        GameRegistry.registerTileEntity(TENode.class, "dcNode");
         ClientProxy.registerRendering();
         //Initialise Blocks:
         blocks.initialiseBlocks();

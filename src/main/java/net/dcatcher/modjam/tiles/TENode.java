@@ -9,17 +9,10 @@ import java.util.Random;
 
 public class TENode extends TileEntity{
 
-    private float cubeXRotation = 0, cubeYRotation = 0,cubeZRotation = 0;
-    private boolean isActive = false;
+    private float cubeXRotation, cubeYRotation,cubeZRotation;
+    private boolean isActive;
 
-    @Override
-    public void writeToNBT(NBTTagCompound nbt) {
-        super.writeToNBT(nbt);
-        nbt.setFloat("cubeXRotation", this.cubeXRotation);
-        nbt.setFloat("cubeYRotation", this.cubeYRotation);
-        nbt.setFloat("cubeZRotation", this.cubeZRotation);
-        nbt.setBoolean("isActive", this.isActive);
-    }
+
 
 
     @Override
@@ -29,6 +22,15 @@ public class TENode extends TileEntity{
         this.cubeYRotation = nbt.getFloat("cubeYRotation");
         this.cubeZRotation = nbt.getFloat("cubeZRotation");
         this.isActive = nbt.getBoolean("isActive");
+    }
+
+    @Override
+    public void writeToNBT(NBTTagCompound nbt) {
+        super.writeToNBT(nbt);
+        nbt.setFloat("cubeXRotation", this.cubeXRotation);
+        nbt.setFloat("cubeYRotation", this.cubeYRotation);
+        nbt.setFloat("cubeZRotation", this.cubeZRotation);
+        nbt.setBoolean("isActive", this.isActive);
     }
 
     @Override
