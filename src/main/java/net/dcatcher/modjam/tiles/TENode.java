@@ -14,6 +14,8 @@ public class TENode extends TileEntity{
     }
     public float cubeXRotation, cubeYRotation,cubeZRotation;
 
+    public TENode pairedNode;
+
     @Override
     @SideOnly(Side.CLIENT)
     public void updateEntity() {
@@ -44,7 +46,7 @@ public class TENode extends TileEntity{
         TENode closestNode = null;
         double closestNodeDistance = 20;
         for(Object entity : entities){
-            if(entity instanceof TENode){
+            if(entity instanceof TENode && !entity.equals(this)){
                 TENode current = (TENode)entity;
                 double distance = current.getDistanceFrom(xCoord, yCoord, zCoord);
 
@@ -55,6 +57,14 @@ public class TENode extends TileEntity{
             }
         }
         return closestNode;
+    }
+
+    public void pairNode(TENode pairedNode){
+
+    }
+
+    public void desyncPairs(){
+
     }
 
 
@@ -80,6 +90,9 @@ public class TENode extends TileEntity{
         this.setActive(nbt.getBoolean("isActive"));
         System.out.println("ISACTIVE: " + isActive);
 
+        this.pairedNode = (TENode)worldObj.getBlockTileEntity(nbt.getInteger("pairedCoordX"),
+                                nbt.getInteger("pairedCoordY"), nbt.getInteger("pairedCoordZ"));
+
     }
 
     @Override
@@ -88,6 +101,9 @@ public class TENode extends TileEntity{
         nbt.setFloat("cubeXRotation", this.cubeXRotation);
         nbt.setFloat("cubeYRotation", this.cubeYRotation);
         nbt.setFloat("cubeZRotation", this.cubeZRotation);
-        nbt.setBoolean("isActive", this.isActive);
+        nbt.setBoolean("isPaired", (pairedNode != null));
+        nbt.setInteger("pairedCoordX", pairedNode.xCoord);
+        nbt.setInteger("pairedCoordY", pairedNode.yCoord);
+        nbt.setInteger("pairedCoordZ", pairedNode.zCoord);
     }
 }
