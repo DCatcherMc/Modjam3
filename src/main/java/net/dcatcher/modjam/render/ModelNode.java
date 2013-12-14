@@ -57,6 +57,13 @@ public class ModelNode extends ModelBase
       Pillar.render(f5);
       Cube.render(f5);
   }
+
+    public void renderItem(float scale){
+        Base.render(scale);
+        Podium.render(scale);
+        Pillar.render(scale);
+        Cube.render(scale);
+    }
   
   private void setRotation(ModelRenderer model, float x, float y, float z)
   {

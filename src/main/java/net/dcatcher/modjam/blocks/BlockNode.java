@@ -8,6 +8,7 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockNode extends BlockContainer {
@@ -28,6 +29,10 @@ public class BlockNode extends BlockContainer {
         return false;
     }
 
+    @Override
+    public void setBlockBoundsBasedOnState(IBlockAccess world, int par2, int par3, int par4) {
+        setBlockBounds(0F, 0F, 0F, 1F, 0.6F, 1F);
+    }
 
     @Override
     public boolean renderAsNormalBlock() {
