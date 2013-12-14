@@ -73,8 +73,8 @@ public class TENode extends TileEntity{
         this.cubeXRotation = nbt.getFloat("cubeXRotation");
         this.cubeYRotation = nbt.getFloat("cubeYRotation");
         this.cubeZRotation = nbt.getFloat("cubeZRotation");
-        isActive = nbt.getBoolean("isActive");
         System.out.println("ISACTIVE: " + isActive);
+        this.setActive(nbt.getBoolean("isActive"));
     }
 
     @Override
