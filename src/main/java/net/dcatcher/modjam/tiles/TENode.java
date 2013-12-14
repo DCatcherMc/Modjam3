@@ -66,6 +66,7 @@ public class TENode extends TileEntity{
 
     public void desync(){
         this.pairedNode = null;
+        this.setActive(false);
     }
 
 
