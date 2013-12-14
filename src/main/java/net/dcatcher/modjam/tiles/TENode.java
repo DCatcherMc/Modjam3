@@ -1,19 +1,21 @@
 package net.dcatcher.modjam.tiles;
 
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 
+import java.util.List;
 import java.util.Random;
 
 public class TENode extends TileEntity{
 
     private float cubeXRotation, cubeYRotation,cubeZRotation;
+    private boolean isActive = false;
 
 
     @Override
     public void updateEntity() {
         super.updateEntity();
 
-        boolean isActive = false;
 
         Random random = new Random();
 
@@ -24,10 +26,29 @@ public class TENode extends TileEntity{
         }else{
 
         }
-
     }
 
 
+
+    public TileEntity findClosestNode(){
+        List entities = worldObj.getEntitiesWithinAABB(TENode.class, getRenderBoundingBox().expand(10d, 10d, 10d));
+        TENode closestNode = null;
+        double closestNodeDistance = 20;
+        for(Object entity : entities){
+            TENode current = (TENode)entity;
+            double distance = current.getDistanceFrom(xCoord, yCoord, zCoord);
+
+            if(distance < closestNodeDistance){
+                closestNodeDistance = distance;
+                closestNode = current;
+            }
+
+        }
+
+
+        return closestNode;
+
+    }
 
 
     public float getCubeXRotation(){
