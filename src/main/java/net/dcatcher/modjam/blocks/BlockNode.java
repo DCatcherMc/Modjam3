@@ -42,20 +42,6 @@ public class BlockNode extends BlockContainer {
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int posX, float posY, float posZ, float otherThing) {
-        if(player.getCurrentEquippedItem() != null && (player.getCurrentEquippedItem().itemID == Item.emerald.itemID)){
-            TENode thisOne = (TENode) world.getBlockTileEntity(x, y, z);
-            TENode closestInactive = thisOne.findClosestInactiveNode();
-            if(closestInactive != null){
-                thisOne.pairNode(closestInactive);
-                closestInactive.pairNode(thisOne);
-            }
-
-        }
-        return true;
-    }
-
-    @Override
     public int getRenderType() {
         return BlockHandler.ID;
     }
@@ -65,9 +51,5 @@ public class BlockNode extends BlockContainer {
         return new TENode();
     }
 
-    @Override
-    public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) {
-        TENode tile = (TENode)par1World.getBlockTileEntity(par2, par3, par4);
-        tile.pairedNode.desync();
-    }
+
 }

@@ -14,7 +14,7 @@ public class TENode extends TileEntity{
     }
     public float cubeXRotation, cubeYRotation,cubeZRotation;
 
-    public TENode pairedNode;
+    public String typeOfNode = "";
 
     @Override
     @SideOnly(Side.CLIENT)
@@ -30,35 +30,17 @@ public class TENode extends TileEntity{
         }
     }
 
+    public String getType(){
+        return typeOfNode;
+    }
+
     public void setActive(boolean active){
         isActive = active;
-        System.out.println("Setting active!" + active);
-
     }
 
     public void toggleActive(){
         isActive = !isActive;
-        System.out.println("Toggling active!");
     }
-
-    public TENode findClosestInactiveNode(){
-        List entities = worldObj.loadedTileEntityList;
-        TENode closestNode = null;
-        double closestNodeDistance = 20;
-        for(Object entity : entities){
-            if(entity instanceof TENode && !entity.equals(this) && !((TENode) entity).isActive){
-                TENode current = (TENode)entity;
-                double distance = current.getDistanceFrom(xCoord, yCoord, zCoord);
-
-                if(distance < closestNodeDistance){
-                    closestNodeDistance = distance;
-                    closestNode = current;
-                }
-            }
-        }
-        return closestNode;
-    }
-
 
     public float getCubeXRotation(){
         return cubeXRotation;
@@ -79,12 +61,7 @@ public class TENode extends TileEntity{
         this.cubeXRotation = nbt.getFloat("cubeXRotation");
         this.cubeYRotation = nbt.getFloat("cubeYRotation");
         this.cubeZRotation = nbt.getFloat("cubeZRotation");
-        this.setActive(nbt.getBoolean("isActive"));
-        System.out.println("ISACTIVE: " + isActive);
-
-        this.pairedNode = (TENode)worldObj.getBlockTileEntity(nbt.getInteger("pairedCoordX"),
-                                nbt.getInteger("pairedCoordY"), nbt.getInteger("pairedCoordZ"));
-
+        this.typeOfNode = nbt.getString("typeOfNode");
     }
 
     @Override
@@ -93,9 +70,6 @@ public class TENode extends TileEntity{
         nbt.setFloat("cubeXRotation", this.cubeXRotation);
         nbt.setFloat("cubeYRotation", this.cubeYRotation);
         nbt.setFloat("cubeZRotation", this.cubeZRotation);
-        nbt.setBoolean("isPaired", (pairedNode != null));
-        nbt.setInteger("pairedCoordX", pairedNode.xCoord);
-        nbt.setInteger("pairedCoordY", pairedNode.yCoord);
-        nbt.setInteger("pairedCoordZ", pairedNode.zCoord);
+        nbt.setString("typeOfNode", typeOfNode);
     }
 }

@@ -42,7 +42,6 @@ public class DCModjam {
         //Initialise Blocks:
         blocks.initialiseBlocks();
         DCRecipes.registerRecipes();
-        MinecraftForge.EVENT_BUS.register(new NodeBreakListener());
     }
 
     @Mod.EventHandler
