@@ -43,8 +43,11 @@ public class BlockNode extends BlockContainer {
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int posX, float posY, float poxsZ, float otherThing) {
         TENode thisNode = (TENode)world.getBlockTileEntity(x, y, z);
-        thisNode.toggleActive();
-
+        TENode closest = thisNode.findClosestNode();
+        if(closest != null){
+            thisNode.setActive(true);
+            closest.setActive(true);
+        }
         return true;
     }
 

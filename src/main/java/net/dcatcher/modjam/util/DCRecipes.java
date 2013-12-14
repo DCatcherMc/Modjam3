@@ -12,6 +12,6 @@ import net.minecraft.item.ItemStack;
 public class DCRecipes {
 
     public static void registerRecipes(){
-        GameRegistry.addRecipe(new ItemStack(DCBlocks.blockNode, 1), " e ", " i ", "iii", 'e', new ItemStack(Item.emerald, 1), 'i', new ItemStack(Block.blockIron, 1));
+        GameRegistry.addRecipe(new ItemStack(DCBlocks.blockNode, 2), " e ", " i ", "iii", 'e', new ItemStack(Item.emerald, 1), 'i', new ItemStack(Block.blockIron, 1));
     }
 }

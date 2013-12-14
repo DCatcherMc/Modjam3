@@ -10,7 +10,7 @@ import java.util.Random;
 public class TENode extends TileEntity{
     public boolean isActive;
     public TENode(){
-        isActive = true;
+        isActive = false;
     }
     public float cubeXRotation, cubeYRotation,cubeZRotation;
 
@@ -40,16 +40,18 @@ public class TENode extends TileEntity{
     }
 
     public TENode findClosestNode(){
-        List entities = worldObj.getEntitiesWithinAABB(TENode.class, getRenderBoundingBox().expand(10d, 10d, 10d));
+        List entities = worldObj.loadedTileEntityList;
         TENode closestNode = null;
         double closestNodeDistance = 20;
         for(Object entity : entities){
-            TENode current = (TENode)entity;
-            double distance = current.getDistanceFrom(xCoord, yCoord, zCoord);
+            if(entity instanceof TENode){
+                TENode current = (TENode)entity;
+                double distance = current.getDistanceFrom(xCoord, yCoord, zCoord);
 
-            if(distance < closestNodeDistance){
-                closestNodeDistance = distance;
-                closestNode = current;
+                if(distance < closestNodeDistance){
+                    closestNodeDistance = distance;
+                    closestNode = current;
+                }
             }
         }
         return closestNode;
