@@ -7,6 +7,7 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -41,12 +42,15 @@ public class BlockNode extends BlockContainer {
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int posX, float posY, float poxsZ, float otherThing) {
-        TENode thisNode = (TENode)world.getBlockTileEntity(x, y, z);
-        TENode closest = thisNode.findClosestNode();
-        if(closest != null && thisNode != closest){
-            thisNode.setActive(true);
-            closest.setActive(true);
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int posX, float posY, float posZ, float otherThing) {
+        if(player.getCurrentEquippedItem() != null && (player.getCurrentEquippedItem().itemID == Item.emerald.itemID)){
+            TENode thisOne = (TENode) world.getBlockTileEntity(x, y, z);
+            TENode closestInactive = thisOne.findClosestInactiveNode();
+            if(closestInactive != null){
+                thisOne.pairNode(closestInactive);
+                closestInactive.pairNode(thisOne);
+            }
+
         }
         return true;
     }

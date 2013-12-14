@@ -41,12 +41,12 @@ public class TENode extends TileEntity{
         System.out.println("Toggling active!");
     }
 
-    public TENode findClosestNode(){
+    public TENode findClosestInactiveNode(){
         List entities = worldObj.loadedTileEntityList;
         TENode closestNode = null;
         double closestNodeDistance = 20;
         for(Object entity : entities){
-            if(entity instanceof TENode && !entity.equals(this)){
+            if(entity instanceof TENode && !entity.equals(this) && !((TENode) entity).isActive){
                 TENode current = (TENode)entity;
                 double distance = current.getDistanceFrom(xCoord, yCoord, zCoord);
 
@@ -60,11 +60,12 @@ public class TENode extends TileEntity{
     }
 
     public void pairNode(TENode pairedNode){
-
+        this.pairedNode = pairedNode;
+        this.setActive(true);
     }
 
-    public void desyncPairs(){
-
+    public void desync(){
+        this.pairedNode = null;
     }
 
 
