@@ -10,6 +10,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ChatMessageComponent;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -42,7 +43,9 @@ public class BlockNode extends BlockContainer {
     }
 
     @Override
-    public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int posX, float posY, float poxsZ, float otherThing) {
+        TENode thisNode = (TENode)world.getBlockTileEntity(x, y, z);
+        thisNode.toggleActive();
 
         return true;
     }

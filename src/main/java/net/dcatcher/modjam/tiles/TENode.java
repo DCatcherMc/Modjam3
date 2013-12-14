@@ -1,5 +1,6 @@
 package net.dcatcher.modjam.tiles;
 
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 
@@ -11,6 +12,23 @@ public class TENode extends TileEntity{
     private float cubeXRotation, cubeYRotation,cubeZRotation;
     private boolean isActive = false;
 
+    @Override
+    public void writeToNBT(NBTTagCompound nbt) {
+        super.writeToNBT(nbt);
+        nbt.setFloat("cubeXRotation", cubeXRotation);
+        nbt.setFloat("cubeYRotation", cubeYRotation);
+        nbt.setFloat("cubeZRotation", cubeZRotation);
+        nbt.setBoolean("isActive", isActive);
+    }
+
+
+    @Override
+    public void readFromNBT(NBTTagCompound nbt) {
+        super.readFromNBT(nbt);
+        cubeXRotation = nbt.getFloat("cubeXRotation");
+        cubeYRotation = nbt.getFloat("cubeYRotation");
+        cubeZRotation = nbt.getFloat("cubeZRotation");
+    }
 
     @Override
     public void updateEntity() {
@@ -28,9 +46,17 @@ public class TENode extends TileEntity{
         }
     }
 
+    public void setActive(boolean active){
+        isActive = active;
+    }
+
+    public void toggleActive(){
+        isActive = (!isActive);
+    }
 
 
-    public TileEntity findClosestNode(){
+
+    public TENode findClosestNode(){
         List entities = worldObj.getEntitiesWithinAABB(TENode.class, getRenderBoundingBox().expand(10d, 10d, 10d));
         TENode closestNode = null;
         double closestNodeDistance = 20;
