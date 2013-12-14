@@ -9,14 +9,13 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.dcatcher.modjam.blocks.DCBlocks;
 import net.dcatcher.modjam.tiles.TENode;
-import net.dcatcher.modjam.util.ClientProxy;
-import net.dcatcher.modjam.util.CommonProxy;
-import net.dcatcher.modjam.util.DCCreativeTab;
-import net.dcatcher.modjam.util.DCRecipes;
+import net.dcatcher.modjam.util.*;
+import net.dcatcher.modjam.util.packets.DCPacketHandler;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = "dcmodjam", name = "DCModJam - 3", version = "0.0.1")
-@NetworkMod(clientSideRequired = true, serverSideRequired = false)
+@NetworkMod(clientSideRequired = true, serverSideRequired = false, channels = {"DCModjam", "DCModJam-Nodes"}, packetHandler = DCPacketHandler.class)
 public class DCModjam {
 
     @Mod.Instance("dcmodjam")
@@ -43,6 +42,7 @@ public class DCModjam {
         //Initialise Blocks:
         blocks.initialiseBlocks();
         DCRecipes.registerRecipes();
+        MinecraftForge.EVENT_BUS.register(new NodeBreakListener());
     }
 
     @Mod.EventHandler

@@ -69,6 +69,5 @@ public class BlockNode extends BlockContainer {
     public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5) {
         TENode tile = (TENode)par1World.getBlockTileEntity(par2, par3, par4);
         tile.pairedNode.desync();
-        tile.desync();
     }
 }

@@ -59,16 +59,6 @@ public class TENode extends TileEntity{
         return closestNode;
     }
 
-    public void pairNode(TENode pairedNode){
-        this.pairedNode = pairedNode;
-        this.setActive(true);
-    }
-
-    public void desync(){
-        this.pairedNode = null;
-        this.setActive(false);
-    }
-
 
     public float getCubeXRotation(){
         return cubeXRotation;
